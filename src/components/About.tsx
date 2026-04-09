@@ -1,4 +1,5 @@
 "use client";
+import { a } from "framer-motion/client";
 import Container from "./Container";
 import { motion } from "framer-motion";
 
@@ -45,23 +46,34 @@ export default function About({ lang }: AboutProps) {
               <p className="text-[#4A4A4A] font-light leading-relaxed tracking-wide text-base md:text-xl font-sans italic mb-8">
                 {isEs ? (
                   <>
-                    La Dra. Nina Izhaky redefine la odontología restauradora mediante el
-                    uso de{" "}
-                    <span className="text-black font-normal not-italic underline decoration-black/20 hover:decoration-[#C5A059] transition-all cursor-pointer">
-                      <a
-                        href="https://tribecadentalstudio.com/services/dental-implants/"
-                        target="_blank"
-                      >
-                        Mapeo 3D de Precisión
-                      </a>
-                    </span>{" "}
-                    — una tecnología que permite la colocación milimétrica de implantes. 
-                    Ya sea un solo diente o una restauración de arco completo, eliminamos 
-                    la causa raíz de la pérdida ósea sin las limitaciones de las prótesis tradicionales.
-                  </>
+                    <a href="https://tribecadentalstudio.com/team/dr-nina-izhaky/" target="_blank">
+                      ◊
+                      La Dra. Nina Izhaky
+                    </a>
+                    &nbsp;
+                    <>
+                      redefine la odontología restauradora mediante el
+                      uso de{" "}
+                      <span className="text-black font-normal not-italic underline decoration-black/20 hover:decoration-[#C5A059] transition-all cursor-pointer">
+                        <a
+                          href="https://tribecadentalstudio.com/services/dental-implants/"
+                          target="_blank"
+                        >
+                          Mapeo 3D de Precisión
+                        </a>
+                      </span>{" "}
+                      — una tecnología que permite la colocación milimétrica de implantes.
+                      Ya sea un solo diente o una restauración de arco completo, eliminamos
+                      la causa raíz de la pérdida ósea sin las limitaciones de las prótesis tradicionales.
+                    </></>
                 ) : (
                   <>
-                    Dr. Nina Izhaky redefines restorative dentistry through{" "}
+                    <a href="https://tribecadentalstudio.com/team/dr-nina-izhaky/" target="_blank">
+                      Dr. Nina Izhaky
+                    </a>
+                    &nbsp;
+                    redefines restorative dentistry through{" "}
+
                     <span className="text-black font-normal not-italic underline decoration-black/20 hover:decoration-[#C5A059] transition-all cursor-pointer">
                       <a
                         href="https://tribecadentalstudio.com/services/dental-implants/"
@@ -70,8 +82,8 @@ export default function About({ lang }: AboutProps) {
                         Precision 3D Mapping
                       </a>
                     </span>{" "}
-                    — a breakthrough technology allowing for millimeter-perfect placement. 
-                    Whether a single tooth or full-arch restoration, we eliminate the root 
+                    — a breakthrough technology allowing for millimeter-perfect placement.
+                    Whether a single tooth or full-arch restoration, we eliminate the root
                     cause of bone loss without the limitations of traditional dentures.
                   </>
                 )}
@@ -90,14 +102,14 @@ export default function About({ lang }: AboutProps) {
             <p className="text-sm text-gray-500 font-light leading-relaxed">
               {isEs ? (
                 <>
-                  En Tribeca Dental Studio, sus implantes son el resultado de la 
-                  colaboración entre cirujanos expertos y ceramistas maestros, 
+                  En Tribeca Dental Studio, sus implantes son el resultado de la
+                  colaboración entre cirujanos expertos y ceramistas maestros,
                   todo bajo un mismo techo.
                 </>
               ) : (
                 <>
-                  At Tribeca Dental Studio, your implants are a collaboration between 
-                  expert surgeons and master ceramists, all working together under 
+                  At Tribeca Dental Studio, your implants are a collaboration between
+                  expert surgeons and master ceramists, all working together under
                   one roof for a seamless result.
                 </>
               )}
@@ -119,7 +131,10 @@ export default function About({ lang }: AboutProps) {
           {/* Pillar 3: All-on-4 Technology */}
           <div className="space-y-4">
             <h4 className="font-serif text-xl italic text-[#1A1A1A]">
-              {isEs ? "Arco Completo (All-on-4)" : "Full-Arch (All-on-4)"}
+              <a href="https://tribecadentalstudio.com/restore-your-smile-with-all-on-4-dental-implants/" target="_blank">
+                {isEs ? "Arco Completo (All-on-4)" : "Full-Arch (All-on-4)"}
+
+              </a>
             </h4>
             <p className="text-sm text-gray-500 font-light leading-relaxed">
               {isEs ? (
