@@ -19,11 +19,11 @@ export default function Hero({ dict }: HeroProps) {
         autoPlay
         muted
         loop
-        poster="/Nightlase.webp"
+        poster="/implants.webm"
         playsInline
         className="absolute inset-0 z-0 h-full w-full object-cover opacity-60"
       >
-        <source src="/Nightlase.mp4" type="video/mp4" />
+        <source src="/implants.webm" type="video/mp4" />
       </video>
 
       <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/60 via-transparent to-black/80" />

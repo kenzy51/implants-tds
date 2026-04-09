@@ -1,18 +1,10 @@
 /* eslint-disable @next/next/no-sync-scripts */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { Inter, Cormorant_Garamond } from "next/font/google";
 import "../globals.css";
 import Header from "@/components/Header";
 import { Metadata } from "next";
 import { getDictionary } from "./dictionaries";
 import { brandonGrotesque } from "../fonts";
-
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["300", "400", "600"],
-  variable: "--font-cormorant-garamond",
-});
 
 export async function generateMetadata({
   params,
@@ -25,47 +17,47 @@ export async function generateMetadata({
 
   return {
     title: isEs
-      ? "Tratamiento para Ronquidos NightLase® | Tribeca Dental Studio NYC"
-      : "NightLase® Snoring Treatment | Tribeca Dental Studio NYC",
+      ? "Implantes Dentales en NYC | Especialistas en Zygomatic | Tribeca Dental Studio"
+      : "Dental Implants NYC | Zygomatic & Full Arch Specialists | Tribeca Dental Studio",
     description: isEs
-      ? "Duerma profundamente y sin ruidos con NightLase®. Tratamiento láser no invasivo para ronquidos y apnea del sueño en Tribeca. Sin cirugía."
-      : "Experience deep, quiet sleep with NightLase®. A non-invasive, laser-based treatment for snoring and sleep apnea in Tribeca. No surgery, no downtime.",
+      ? "Recupere su sonrisa con implantes dentales 3D en Tribeca. Especialistas en casos complejos, All-on-4 y Zygomatic. Sin injerto óseo en muchos casos."
+      : "Restore your smile with 3D-guided dental implants in Tribeca. Specialists in All-on-4, All-on-6, and Zygomatic implants for severe bone loss.",
     icons: {
       icon: "/favicon.ico",
       shortcut: "/favicon.ico",
       apple: "/favicon.ico",
     },
     robots: {
-      index: false,
+      index: true,
       follow: true,
     },
     verification: {
       google: "FvXb6KDkt8yxyo6HnbW1yLiHs9YrgSWnt0xbQ2cag0I",
     },
     alternates: {
-      canonical: `https://tribecadentalstudio.com/services/sleep-apnea-treatments/`,
+      canonical: `https://implants.tribecadentalstudio.com/${lang}`,
       languages: {
-        "en-US": "https://nightlase.tribecadentalstudio.com/en",
-        "es-ES": "https://nightlase.tribecadentalstudio.com/es",
+        "en-US": "https://implants.tribecadentalstudio.com/en",
+        "es-ES": "https://implants.tribecadentalstudio.com/es",
       },
     },
     openGraph: {
       title: isEs
-        ? "NightLase®: La solución de lujo para dormir mejor | NYC"
-        : "NightLase®: The Luxury Solution for Better Sleep | NYC",
+        ? "Implantes Dentales de Lujo en NYC | Tribeca Dental Studio"
+        : "Luxury Dental Implants NYC | Tribeca Dental Studio",
       description: isEs
-        ? "Transforme su sueño y salud en Tribeca Dental. Descubra el poder no invasivo de NightLase®."
-        : "Transform your sleep and health at Tribeca Dental. Discover the non-invasive power of NightLase®.",
-      url: `https://nightlase.tribecadentalstudio.com/${lang}`,
+        ? "La tecnología 3D más avanzada para su sonrisa. Especialistas en implantes All-on-4 y Zygomatic en Manhattan."
+        : "Advanced 3D technology for your smile. Specialists in All-on-4 and Zygomatic implants in Manhattan.",
+      url: `https://implants.tribecadentalstudio.com/${lang}`,
       siteName: "Tribeca Dental Studio",
       images: [
         {
-          url: "/After.png",
+          url: "/implant-og-image.png",
           width: 1200,
           height: 630,
           alt: isEs
-            ? "Tratamiento NightLase en Tribeca Dental"
-            : "NightLase Treatment at Tribeca Dental",
+            ? "Implantes Dentales en Tribeca Dental Studio"
+            : "Dental Implants at Tribeca Dental Studio",
         },
       ],
       locale: isEs ? "es_ES" : "en_US",
@@ -73,16 +65,19 @@ export async function generateMetadata({
     },
     keywords: isEs
       ? [
-          "NightLase NYC",
-          "Tratamiento ronquidos Tribeca",
-          "Apnea del sueño láser",
-          "Curar ronquidos NYC",
+          "Implantes dentales NYC",
+          "Implantes Zygomatic Manhattan",
+          "All on 4 dental NYC",
+          "Especialista en implantes Tribeca",
+          "Dentista hispano NYC implantes",
         ]
       : [
-          "NightLase NYC",
-          "Snoring treatment Tribeca",
-          "Sleep apnea laser therapy",
-          "Non-invasive snoring cure",
+          "Dental Implants NYC",
+          "Zygomatic Implants Manhattan",
+          "All on 4 implants Tribeca",
+          "Best dental implants NYC",
+          "Full mouth restoration Manhattan",
+          "No bone dental implants NYC",
         ],
   };
 }
@@ -115,6 +110,8 @@ export default async function RootLayout(props: {
           async
         ></script>
       </body>
+      <script src="https://link.msgsndr.com/js/form_embed.js"></script>
+
       <script
         // @ts-ignore
         theme='{"primary":"#fffffff","background":"#ffffff"}'

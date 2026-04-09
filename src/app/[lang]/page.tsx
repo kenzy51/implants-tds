@@ -6,7 +6,6 @@ import FAQ from "@/components/faq";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Technology from "@/components/Technology";
-import Testimonial from "@/components/Testimonial";
 import { getDictionary } from "./dictionaries";
 import Diagnostics from "@/components/Diagnostics";
 
@@ -27,7 +26,7 @@ export default async function Home({
       <Technology lang={lang} />
 
       <Comparison lang={lang} />
-      <Testimonial lang={lang} />
+      {/* <Testimonial lang={lang} /> */}
       <FAQ lang={lang} />
       <ContactForm />
       <Footer />

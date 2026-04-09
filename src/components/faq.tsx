@@ -14,25 +14,35 @@ export default function FAQ({ lang }: FAQProps) {
   const faqs = [
     {
       q: isEs
-        ? "¿Cuántas sesiones se requieren para obtener resultados óptimos?"
-        : "How many sessions are required for optimal results?",
+        ? "¿Soy candidato si me han dicho que no tengo suficiente hueso?"
+        : "Am I a candidate if I was told I have low bone density?",
       a: isEs
-        ? "El protocolo estándar de NightLase consiste en tres sesiones de tratamiento separadas durante un período de seis semanas. Esto permite que las fibras de colágeno se contraigan y se tensen de forma natural."
-        : "The standard NightLase protocol consists of three separate treatment sessions over a six-week period. This allows the collagen fibers to naturally contract and tighten.",
+        ? "Absolutamente. En Tribeca Dental Studio, nos especializamos en implantes Zygomatic y técnicas de arco completo que se anclan en el hueso de la mejilla, eliminando la necesidad de injertos óseos complejos en la mayoría de los casos."
+        : "Absolutely. At Tribeca Dental Studio, we specialize in Zygomatic implants and full-arch techniques that anchor into the cheekbone, eliminating the need for complex bone grafting in most cases.",
     },
     {
-      q: isEs ? "¿Es doloroso el procedimiento?" : "Is the procedure painful?",
+      q: isEs 
+        ? "¿Cuánto tiempo dura el proceso de recuperación?" 
+        : "How long is the recovery process?",
       a: isEs
-        ? "Para nada. Los pacientes experimentan una sensación suave de calor. No se requiere anestesia ni adormecimiento, y puede retomar su día inmediatamente."
-        : "Not at all. Patients experience a gentle, warming sensation. No anesthesia or numbing is required, and you may return to your day immediately.",
+        ? "Gracias a nuestra tecnología de mapeo 3D y cirugía guiada, el trauma tisular se minimiza. La mayoría de los pacientes de All-on-4 salen con una sonrisa funcional el mismo día y regresan a sus actividades normales en pocos días."
+        : "Thanks to our 3D mapping and guided surgery technology, tissue trauma is minimized. Most All-on-4 patients walk out with a functional smile the same day and return to normal activities within a few days.",
     },
     {
       q: isEs
-        ? "¿Cuánto tiempo duran los resultados?"
-        : "How long do the results last?",
+        ? "¿Cuál es la vida útil de un implante dental?"
+        : "What is the lifespan of a dental implant?",
       a: isEs
-        ? "Los resultados suelen durar hasta un año. Recomendamos una única sesión de mantenimiento anual para asegurar que su vía respiratoria permanezca abierta y silenciosa."
-        : "Results typically last up to a year. We recommend a single maintenance session annually to ensure your airway remains open and quiet.",
+        ? "Con el cuidado adecuado y visitas regulares, los implantes dentales están diseñados para ser una solución de por vida. A diferencia de los puentes o dentaduras, los implantes se integran permanentemente con su estructura ósea."
+        : "With proper care and regular visits, dental implants are designed to be a lifelong solution. Unlike bridges or dentures, implants permanently integrate with your bone structure.",
+    },
+    {
+      q: isEs
+        ? "¿Es doloroso el procedimiento quirúrgico?"
+        : "Is the surgical procedure painful?",
+      a: isEs
+        ? "Priorizamos su comodidad. Ofrecemos varios niveles de sedación, desde sedación consciente hasta anestesia general administrada por profesionales. La mayoría de los pacientes reportan menos molestias de las que esperaban."
+        : "We prioritize your comfort. We offer various levels of sedation, from conscious sedation to board-certified general anesthesia. Most patients report significantly less discomfort than they anticipated.",
     },
   ];
 
@@ -41,10 +51,10 @@ export default function FAQ({ lang }: FAQProps) {
       <Container>
         <div className="flex flex-col md:flex-row gap-16 md:gap-24">
           <div className="md:w-1/3">
-            <h2 className="text-4xl font-serif sticky top-24">
-              {isEs ? "Autoridad" : "Scientific"} <br />
-              <span className="italic font-light">
-                {isEs ? "Científica." : "Authority."}
+            <h2 className="text-4xl font-serif sticky top-24 text-[#1A1F2B]">
+              {isEs ? "Autoridad" : "Clinical"} <br />
+              <span className="italic font-light text-[#C5A059]">
+                {isEs ? "Profesional." : "Certainty."}
               </span>
             </h2>
           </div>
@@ -56,11 +66,11 @@ export default function FAQ({ lang }: FAQProps) {
                   onClick={() => setOpenIndex(openIndex === i ? null : i)}
                   className="w-full py-8 flex justify-between items-center text-left group"
                 >
-                  <span className="text-[13px] uppercase tracking-[0.3em] text-black/80 group-hover:text-black transition-colors">
+                  <span className="text-[11px] uppercase tracking-[0.3em] text-black/60 group-hover:text-[#C5A059] transition-colors duration-500 font-bold">
                     {faq.q}
                   </span>
                   <span
-                    className={`text-xl font-light transition-transform duration-500 ${openIndex === i ? "rotate-45" : ""}`}
+                    className={`text-xl font-light text-[#C5A059] transition-transform duration-500 ${openIndex === i ? "rotate-45" : ""}`}
                   >
                     +
                   </span>
@@ -78,7 +88,7 @@ export default function FAQ({ lang }: FAQProps) {
                       }}
                       className="overflow-hidden"
                     >
-                      <p className="pb-8 text-gray-500 font-light leading-relaxed italic max-w-xl">
+                      <p className="pb-8 text-slate-500 font-light leading-relaxed italic max-w-xl text-sm">
                         {faq.a}
                       </p>
                     </motion.div>

@@ -1,160 +1,69 @@
 "use client";
-import { useEffect, useState } from "react";
 import Container from "./Container";
-import { motion } from "framer-motion";
 import { useParams } from "next/navigation";
 
 export default function ContactForm() {
   const params = useParams();
-  const lang = params.lang as string;
-  
-  // useEffect(() => {
-  //   const element = document.getElementById("leadForm");
-  //   if (element) {
-  //     element.scrollIntoView({ behavior: "smooth" });
-  //   }
-  // }, []);
-
-  const [status, setStatus] = useState<"idle" | "submitting" | "success">("idle");
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setStatus("submitting");
-
-    const formData = new FormData(e.currentTarget);
-    
-    // Grabbing separate fields directly
-    const payload = {
-      firstName: formData.get("firstName"),
-      lastName: formData.get("lastName"),
-      email: formData.get("email"),
-      phone: formData.get("phone"),
-      lang: lang,
-    };
-
-    try {
-      const res = await fetch("/api/leads", {
-        method: "POST",
-        body: JSON.stringify(payload),
-        headers: { "Content-Type": "application/json" },
-      });
-      
-      if (!res.ok) throw new Error("Submission failed");
-      setStatus("success");
-    } catch (error) {
-      console.error("Submission Error:", error);
-      setStatus("idle");
-      alert(lang === "es" ? "Algo salió mal. Inténtalo de nuevo." : "Something went wrong. Please try again.");
-    }
-  };
+  const lang = (params.lang as string) || "en";
 
   return (
-    <section className="bg-black py-24 md:py-48 border-t border-white/5">
+    <section className="bg-white md:py-32" id="quiz">
       <Container>
-        <div className="max-w-2xl mx-auto" id="leadForm">
-          <div className="text-center mb-20">
-            <span className="text-[10px] uppercase tracking-[0.8em] text-[#C5A059] block mb-6">
-              {lang === "es" ? "Acceso Privado" : "Private Access"}
+        <div id="leadForm">
+          {/* Header Section */}
+          <div className="text-center">
+            <span className="text-[10px] uppercase tracking-[0.5em] text-[#C5A059] font-bold block mb-4">
+              {lang === "es"
+                ? "Evaluación de Candidato"
+                : "Candidate Assessment"}
             </span>
-            <h2 className="text-4xl md:text-5xl font-serif text-white">
+            <h2 className="text-4xl md:text-5xl font-serif text-[#1A1F2B] leading-tight">
               {lang === "es" ? (
-                <>Solicite su <span className="italic font-light">Evaluación VIP.</span></>
+                <>
+                  Comience su{" "}
+                  <span className="italic font-light text-slate-400">
+                    Transformación.
+                  </span>
+                </>
               ) : (
-                <>Request Your <span className="italic font-light">Concierge Evaluation.</span></>
+                <>
+                  Begin Your{" "}
+                  <span className="italic font-light text-slate-400">
+                    Transformation.
+                  </span>
+                </>
               )}
             </h2>
+            
+            <p className="mt-6 text-slate-400 text-sm tracking-wide font-light max-w-md mx-auto">
+              {lang === "es"
+                ? "Responda unas breves preguntas para que nuestros especialistas analicen su caso."
+                : "Answer a few brief questions so our specialists can analyze your unique needs."}
+            </p>
           </div>
+            <br />
 
-          {status === "success" ? (
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="text-center py-20 border border-[#C5A059]/20 bg-white/[0.02]"
-            >
-              <p className="font-serif italic text-2xl text-white px-6">
-                {lang === "es"
-                  ? "Gracias. Nuestro conserje se pondrá en contacto con usted en breve."
-                  : "Thank you. Our concierge will contact you shortly."}
-              </p>
-            </motion.div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-12">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                {/* First Name Field */}
-                <div className="relative border-b border-white/10 focus-within:border-[#C5A059] transition-colors duration-500">
-                  <label className="text-[9px] uppercase tracking-[0.4em] text-gray-400 block mb-2">
-                    {lang === "es" ? "Nombre" : "First Name"}
-                  </label>
-                  <input
-                    name="firstName"
-                    type="text"
-                    required
-                    className="w-full bg-transparent py-3 outline-none text-white font-light tracking-wide"
-                    placeholder={lang === "es" ? "Nombre" : "First Name"}
-                  />
-                </div>
+          <div className="relative bg-[#F9FAFB] rounded-sm border border-slate-100 p-0 md:p-4 shadow-sm">
+            <div className="w-full h-full">
+              <iframe
+                src="https://api.leadconnectorhq.com/widget/survey/9cxwAnu2b65RzoUBY0DB"
+                id="9cxwAnu2b65RzoUBY0DB"
+                title="survey"
+                className="w-full  border-none"
+                style={{ width: "100%", border: "none" }}
+              ></iframe>
+            </div>
+          </div>
+            <br />
 
-                {/* Last Name Field */}
-                <div className="relative border-b border-white/10 focus-within:border-[#C5A059] transition-colors duration-500">
-                  <label className="text-[9px] uppercase tracking-[0.4em] text-gray-400 block mb-2">
-                    {lang === "es" ? "Apellido" : "Last Name"}
-                  </label>
-                  <input
-                    name="lastName"
-                    type="text"
-                    required
-                    className="w-full bg-transparent py-3 outline-none text-white font-light tracking-wide"
-                    placeholder={lang === "es" ? "Apellido" : "Last Name"}
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                {/* Email Field */}
-                <div className="relative border-b border-white/10 focus-within:border-[#C5A059] transition-colors duration-500">
-                  <label className="text-[9px] uppercase tracking-[0.4em] text-gray-400 block mb-2">
-                    {lang === "es" ? "Correo Electrónico" : "Email Address"}
-                  </label>
-                  <input
-                    name="email"
-                    type="email"
-                    required
-                    className="w-full bg-transparent py-3 outline-none text-white font-light tracking-wide"
-                    placeholder="email"
-                  />
-                </div>
-
-                {/* Phone Field */}
-                <div className="relative border-b border-white/10 focus-within:border-[#C5A059] transition-colors duration-500">
-                  <label className="text-[9px] uppercase tracking-[0.4em] text-gray-400 block mb-2">
-                    {lang === "es" ? "Teléfono" : "Phone Number"}
-                  </label>
-                  <input
-                    name="phone"
-                    type="tel"
-                    required
-                    className="w-full bg-transparent py-3 outline-none text-white font-light tracking-wide"
-                    placeholder=""
-                  />
-                </div>
-              </div>
-
-              <div className="flex justify-center pt-8">
-                <button
-                  type="submit"
-                  disabled={status === "submitting"}
-                  className="group relative inline-block py-4 px-12 overflow-hidden border border-[#C5A059]/30 hover:border-[#C5A059] transition-all duration-700 bg-transparent cursor-pointer"
-                >
-                  <span className="relative z-10 text-[11px] uppercase tracking-[0.6em] text-[#C5A059] group-hover:text-black transition-colors duration-700">
-                    {status === "submitting"
-                      ? lang === "es" ? "Enviando..." : "Sending..."
-                      : lang === "es" ? "Enviar Solicitud" : "Submit Inquiry"}
-                  </span>
-                  <div className="absolute inset-0 bg-[#C5A059] translate-y-full group-hover:translate-y-0 transition-transform duration-700 ease-out" />
-                </button>
-              </div>
-            </form>
-          )}
+          {/* Footer Trust Note */}
+          <div className="text-center">
+            <p className="text-[9px] uppercase tracking-widest text-slate-400">
+              {lang === "es"
+                ? "Privacidad Garantizada • Tribeca Dental Studio NYC"
+                : "Privacy Guaranteed • Tribeca Dental Studio NYC"}
+            </p>
+          </div>
         </div>
       </Container>
     </section>
