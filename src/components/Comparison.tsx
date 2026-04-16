@@ -50,10 +50,10 @@ export default function Comparison({ lang }: ComparisonProps) {
           onTouchMove={handleMove}
         >
           {/* After Image (Background) */}
-          <img 
-            src="/result.png" 
-            alt="After" 
-            className="absolute inset-0 w-full h-full object-cover block" 
+          <img
+            src="/result.png"
+            alt="After"
+            className="absolute inset-0 w-full h-full object-cover block"
           />
 
           {/* Before Image (Overlay) */}
@@ -75,7 +75,7 @@ export default function Comparison({ lang }: ComparisonProps) {
             style={{ left: `${sliderPos}%` }}
           >
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-2xl border border-black/5 pointer-events-none">
-               <div className="flex gap-1">
+              <div className="flex gap-1">
                 <div className="w-1 h-1 bg-black/40 rounded-full" />
                 <div className="w-1 h-1 bg-black/40 rounded-full" />
               </div>
@@ -104,15 +104,14 @@ export default function Comparison({ lang }: ComparisonProps) {
         <div className="mt-8 text-center">
           <p className="text-gray-400 font-light italic tracking-wide text-s">
             <a
-              href="https://fotona.com/en/treatments/2039/nightlase-r/"
+              href="https://tribecadentalstudio.com/services/dental-implants/"
               target="_blank"
               className="hover:text-black transition-colors"
             >
-              NightLase®
-            </a>{" "}
-            {isEs 
-              ? "Tratamiento de Paladar Blando — Revelación anatómica completa." 
-              : "Soft Palate Treatment — Full anatomical reveal."}
+              3D-Guided Restorative Excellence —          </a>{" "}
+            {isEs
+              ? "Tratamiento de Paladar Blando — Revelación anatómica completa."
+              : "Full anatomical and aesthetic integration.   "}
           </p>
         </div>
       </Container>
