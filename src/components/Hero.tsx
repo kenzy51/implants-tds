@@ -19,11 +19,13 @@ export default function Hero({ dict }: HeroProps) {
         autoPlay
         muted
         loop
-        poster="/implants.webm"
         playsInline
+        /* 1. Use an actual image (jpg/webp) for the poster */
+        poster="/implants-thumbnail.jpg"
         className="absolute inset-0 z-0 h-full w-full object-cover opacity-60"
       >
-        <source src="/implants.webm" type="video/mp4" />
+        <source src="/implants.webm" type="video/webm" />
+        <source src="/implants.mp4" type="video/mp4" />
       </video>
 
       <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/60 via-transparent to-black/80" />
@@ -56,8 +58,7 @@ export default function Hero({ dict }: HeroProps) {
 
         <div className="flex flex-col items-center gap-6">
           <motion.button
-            onClick={()=>scrollToId('leadForm')}
-
+            onClick={() => scrollToId("leadForm")}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 1.5 }}
