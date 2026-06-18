@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import { Metadata } from "next";
 import { getDictionary } from "./dictionaries";
 import { brandonGrotesque } from "../fonts";
+import Script from "next/script";
 
 export async function generateMetadata({
   params,
@@ -119,6 +120,14 @@ export default async function RootLayout(props: {
         access-token="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5OGUwYTgyMjE3NWJmMTdiNzY2YzdhMCIsInJvbGUiOiJQVUJMSUMiLCJlbWFpbCI6InByQE55dGRzLmNvbSIsImZ1bGxOYW1lIjoiVHJpYmVjYSBEZW50YWwgU3R1ZGlvIiwiaWF0IjoxNzcyNjUyNjEyLCJleHAiOjIwODgyMjg2MTJ9.YHlLlDWIWNcxc7-0hQdoTAFnZFI1w6ln5jgVyBNuMiw"
         chat-id="9264a102-5a9b-4701-850e-ec2527893562"
       ></script>
+      {/* @ts-ignore */}
+      {/* OpenAI Pixel Integration */}
+      <Script id="openai-pixel" strategy="afterInteractive">
+        {`
+            !function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");
+            oaiq("init",{pixelId:"3hTF3XEmhCECsmHrHVJihm",debug:true});
+          `}
+      </Script>
     </html>
   );
 }

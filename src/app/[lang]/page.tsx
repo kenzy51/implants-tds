@@ -30,6 +30,7 @@ export default async function Home({
       <FAQ lang={lang} />
       <ContactForm />
       <Footer />
+      
     </main>
   );
 }
